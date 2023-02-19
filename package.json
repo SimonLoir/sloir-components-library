@@ -12,12 +12,13 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "tsdx build && npm run build-tailwind",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "build-tailwind": "NODE_ENV=production npx tailwindcss -o ./dist/tailwind.css --minify"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -50,10 +51,13 @@
     "@size-limit/preset-small-lib": "^8.2.4",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "autoprefixer": "^10.4.13",
     "husky": "^8.0.3",
+    "postcss": "^8.4.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "size-limit": "^8.2.4",
+    "tailwindcss": "^3.2.7",
     "tsdx": "^0.14.1",
     "tslib": "^2.5.0",
     "typescript": "^3.9.10"
